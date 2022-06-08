@@ -1,12 +1,13 @@
 h1 {
-	font-family: 'Tiro Telugu', serif;}
+	font-family: 'Tiro Telugu', serif;
+}
 body {
 	height: 90vh;
 	display: grid;
 	justify-items: center;
 	align-items: center;
 }
-
 #canvas {
-	border:1px solid grey;
+	border:1px solid black;
+	background: lightblue;
 }
