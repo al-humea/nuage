@@ -1,36 +1,36 @@
 "use strict";
-
 let cnv;
 let ctx;
 let saveTime;
 let deltaTime;
 let clouds;
+let player
 
-let player = {
-	x: 400.0,
-	y: 650.0,
-	v: 0.0,
-	s: 1.0
-};
-
-let cloud = (size, x, y, s, time)=>{
-	this.width = size;
-	this.pos = [x, y];
-	this.speed = s * time;
-	while (this.speed != 0)
+class Cloud {
+	constructor(w, x, y, s){
+		this.width = w;
+		this.pos = [x, y];
+		this.speed = s;
+	}
+	move(deltaTime){
 		this.pos[0] += this.speed;
-	return (this);
-};
-
-window.onload = init; // Calls init once the page is loaded
+		console.log(this.pos);
+	}
+}
 
 function init(){
+	player = {
+		x: 400.0,
+		y: 650.0,
+		v: 0.0,
+		s: 1.0
+	};
 	cnv = document.getElementById("canvas");
 	ctx = cnv.getContext("2d");
 	window.requestAnimationFrame(game);
-	clouds = new Array();
-	clouds.push(cloud(100, 350, 700, 0, 0));
-	clouds.push(cloud(100, 550, 550, 0, 0));
+	clouds = [];
+	clouds.push(new Cloud(100, 350, 700, 1));
+	clouds.push(new Cloud(100, 550, 550, 1));
 	game();
 }
 function draw (){
@@ -40,20 +40,19 @@ function draw (){
 		ctx.fillRect(cloud.pos[0], cloud.pos[1], cloud.width, 10);
 	});
 	ctx.beginPath();
-	ctx.fillStyle = "#FFFF00";
-	ctx.arc(player.x, player.y, 25, 0, 2 * Math.PI);
+	ctx.fillStyle = "yellow";
+	context.arc(player.x, player.y, 25, 0, 2 * Math.PI, false);
 	ctx.fill();
 }
 function update(deltaTime){
 	clouds.forEach(cloud =>{
-		cloud.time = deltaTime;
+		cloud.move(deltaTime);
 	})
-	player.y -= deltaTime;
 }
 function game(time){
 	deltaTime = (time - saveTime) / 1000;
 	saveTime = time;
-	deltaTime = Math.min(deltaTime, 0.1).toFixed(4);
+	deltaTime = Number(Math.min(deltaTime, 0.1).toFixed(4));
 	update(deltaTime);
 	draw();
 	window.requestAnimationFrame(game);
