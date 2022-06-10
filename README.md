@@ -6,7 +6,7 @@ This is a doodle jump ripoff.
 >- [x] Defining the logic of the game, making the design brief.
 >- [x] Making the canvas
 >- [x] Displaying the assets of the game (Player + 1 single platform)
->- [ ] Making the player bounce on a single platform.
+>- [x] Making the player bounce on a single platform.
 >- [ ] Making the player bounce on multiple platforms procedurally generated platforms.
 >- [ ] Polishing.
 >- [ ] Being proud !!!
