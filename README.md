@@ -7,6 +7,6 @@ This is a doodle jump ripoff.
 >- [x] Making the canvas
 >- [x] Displaying the assets of the game (Player + 1 single platform)
 >- [x] Making the player bounce on a single platform.
->- [ ] Making the player bounce on multiple platforms procedurally generated platforms.
->- [ ] Polishing.
->- [ ] Being proud !!!
+>- [x] Making the player bounce on multiple procedurally generated platforms.
+>- [x] Polishing.
+>- [x] Being proud !!!
